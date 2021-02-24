@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Energy Monitor">
+    <title>Energy Monitor</title>
+    <!-- <script src="../js/responsive.js"></script> -->
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      if ('serviceWorker' in navigator) {
+        console.log('hoi');
+
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('xxxxxxxxx).then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1 class="title">Gebäudename</h1>
+
+    <div class="graphContainer">
+      <div class="graph">Diagramm</div>
+
+      <div class="controls">
+        <button type="button" name="back" id="backButton">Zurück</button>
+        <input type="date" class="dateChooser" name="dateChooser"
+          value="2021-02-22">
+        <button type="button" name="forward" id="forwardButton">Vorwärts</button>
+      </div>
+      
+    </div>
+
+    <div class="valuesContainer">
+      <div id="consumption">Aktueller Verbrauch 12kW</div>
+      <div id="production">Aktuelle Produktion 15kW</div>
+      <div id="feedIn">Aktuelle Einspeisung 3kW</div>
+    </div>
+  </body>
+</html>
