@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enjoy the most delicious Pizza in town! We use only the finest and freshest ingredients available">
+    <title>Test</title>
+   
+  </head>
+
+  <body>
+      <div id="mydiv">hoi text</div>
+    <script>
+        function Animal(name){
+          this.name = name;
+        }
+
+        Animal.prototype.move = function(distance){
+          console.log(`${this.name} moves ${distance}m`);
+        }
+        Animal.prototype.toString = function(){
+          return `Animal named ${this.name}`;
+        }
+
+        function Fish(name){
+          Animal.call(this, name);
+        }
+
+        Fish.prototype = Object.create(Animal.prototype);
+
+        Object.defineProperty( Fish.prototype, "constructor", {
+          value: Fish,
+          enumerable: false,
+          writable: true }) ;
+        
+        Fish.prototype.toString = function(){
+            return `Fish named ${this.name}`;
+          }
+
+        Fish.prototype.move = function(distance){
+          console.log(`${this.name} swims ${distance}m`);
+        }
+
+        let hund = new Animal("Bello");
+        let katze = new Animal("Kitty");
+        let fishy = new Fish("Wanda");
+
+        hund.move(4);
+        katze.move(10);
+        fishy.move(500);
+
+    </script>
+
+  </body>
